@@ -16,7 +16,7 @@ gem 'haml-rails'
 gem 'puma'
 gem 'pundit'
 gem 'simple_form'
-gem 'therubyracer', :platform=>:ruby
+gem 'devise_google_authenticator', '0.3.14'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :mri_21, :rbx]

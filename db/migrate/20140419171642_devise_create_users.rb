@@ -32,6 +32,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
 
       t.timestamps
+      t.string  :gauth_secret
+      t.string  :gauth_enabled, :default => "f"
+      t.string  :gauth_tmp
+      t.datetime  :gauth_tmp_datetime
     end
 
     add_index :users, :email,                unique: true
