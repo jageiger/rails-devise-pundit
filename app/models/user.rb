@@ -10,5 +10,10 @@ class User < ActiveRecord::Base
   def set_default_role
     self.role ||= :user
   end
+  
+  has_many :pools, dependent: :destroy
+  
+  has_many :joins, :dependent => :destroy
+  has_many :miners, :through => :joins
 
 end

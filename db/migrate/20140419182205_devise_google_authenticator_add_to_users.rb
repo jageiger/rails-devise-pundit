@@ -1,3 +1,4 @@
+#keep
 class DeviseGoogleAuthenticatorAddToUsers < ActiveRecord::Migration
   def self.up
     change_table :users do |t|

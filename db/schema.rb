@@ -11,7 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140419182205) do
+ActiveRecord::Schema.define(version: 20140523193808) do
+
+  create_table "joins", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "miner_id"
+    t.string   "txid"
+    t.datetime "lease_creation"
+    t.datetime "lease_expiration"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "miners", force: true do |t|
+    t.string   "name"
+    t.string   "ip"
+    t.integer  "state",      default: 0
+    t.integer  "pool_id"
+    t.integer  "user_id",    default: 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pools", force: true do |t|
+    t.string   "ip"
+    t.string   "user_name"
+    t.string   "password"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",  null: false
@@ -36,6 +65,8 @@ ActiveRecord::Schema.define(version: 20140419182205) do
     t.string   "gauth_enabled",          default: "f"
     t.string   "gauth_tmp"
     t.datetime "gauth_tmp_datetime"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
